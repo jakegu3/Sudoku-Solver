@@ -28,15 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.viewBox = new System.Windows.Forms.TextBox();
-            this.inputBtn = new System.Windows.Forms.Button();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.howToUseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewBox = new System.Windows.Forms.TextBox();
+            this.inputBtn = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.fileLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.solveBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.resetBtn = new System.Windows.Forms.Button();
+            this.checkMark1 = new System.Windows.Forms.PictureBox();
+            this.checkMark2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkMark1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkMark2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -46,29 +58,9 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(753, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(541, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // viewBox
-            // 
-            this.viewBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewBox.Location = new System.Drawing.Point(371, 47);
-            this.viewBox.Multiline = true;
-            this.viewBox.Name = "viewBox";
-            this.viewBox.Size = new System.Drawing.Size(370, 303);
-            this.viewBox.TabIndex = 1;
-            this.viewBox.Text = "<-----  Select the input file to read in the sudoku puzzle.";
-            // 
-            // inputBtn
-            // 
-            this.inputBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputBtn.Location = new System.Drawing.Point(107, 62);
-            this.inputBtn.Name = "inputBtn";
-            this.inputBtn.Size = new System.Drawing.Size(149, 50);
-            this.inputBtn.TabIndex = 2;
-            this.inputBtn.Text = "Select Input File";
-            this.inputBtn.UseVisualStyleBackColor = true;
             // 
             // fileToolStripMenuItem
             // 
@@ -82,14 +74,14 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -104,15 +96,136 @@
             // howToUseToolStripMenuItem
             // 
             this.howToUseToolStripMenuItem.Name = "howToUseToolStripMenuItem";
-            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.howToUseToolStripMenuItem.Text = "How to use...";
             this.howToUseToolStripMenuItem.Click += new System.EventHandler(this.howToUseToolStripMenuItem_Click);
+            // 
+            // viewBox
+            // 
+            this.viewBox.Enabled = false;
+            this.viewBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewBox.Location = new System.Drawing.Point(371, 47);
+            this.viewBox.Multiline = true;
+            this.viewBox.Name = "viewBox";
+            this.viewBox.Size = new System.Drawing.Size(116, 236);
+            this.viewBox.TabIndex = 1;
+            this.viewBox.Text = "<-----  Select the input file to read in the sudoku puzzle.";
+            // 
+            // inputBtn
+            // 
+            this.inputBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputBtn.Location = new System.Drawing.Point(107, 62);
+            this.inputBtn.Name = "inputBtn";
+            this.inputBtn.Size = new System.Drawing.Size(149, 50);
+            this.inputBtn.TabIndex = 2;
+            this.inputBtn.Text = "Select Input File";
+            this.inputBtn.UseVisualStyleBackColor = true;
+            this.inputBtn.Click += new System.EventHandler(this.inputBtn_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // fileLabel
+            // 
+            this.fileLabel.AutoSize = true;
+            this.fileLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileLabel.Location = new System.Drawing.Point(79, 116);
+            this.fileLabel.Name = "fileLabel";
+            this.fileLabel.Size = new System.Drawing.Size(90, 18);
+            this.fileLabel.TabIndex = 3;
+            this.fileLabel.Text = "sudoku file";
+            this.fileLabel.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(68, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 24);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "1. ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(68, 161);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 24);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "2. ";
+            // 
+            // solveBtn
+            // 
+            this.solveBtn.Enabled = false;
+            this.solveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solveBtn.Location = new System.Drawing.Point(107, 150);
+            this.solveBtn.Name = "solveBtn";
+            this.solveBtn.Size = new System.Drawing.Size(149, 50);
+            this.solveBtn.TabIndex = 6;
+            this.solveBtn.Text = "Solve the Sudoku Puzzle";
+            this.solveBtn.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(68, 244);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 24);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "3. ";
+            // 
+            // resetBtn
+            // 
+            this.resetBtn.Enabled = false;
+            this.resetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetBtn.Location = new System.Drawing.Point(107, 233);
+            this.resetBtn.Name = "resetBtn";
+            this.resetBtn.Size = new System.Drawing.Size(149, 50);
+            this.resetBtn.TabIndex = 8;
+            this.resetBtn.Text = "Start Over";
+            this.resetBtn.UseVisualStyleBackColor = true;
+            // 
+            // checkMark1
+            // 
+            this.checkMark1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.checkMark1.Image = ((System.Drawing.Image)(resources.GetObject("checkMark1.Image")));
+            this.checkMark1.Location = new System.Drawing.Point(15, 73);
+            this.checkMark1.Name = "checkMark1";
+            this.checkMark1.Size = new System.Drawing.Size(47, 35);
+            this.checkMark1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.checkMark1.TabIndex = 9;
+            this.checkMark1.TabStop = false;
+            this.checkMark1.Visible = false;
+            // 
+            // checkMark2
+            // 
+            this.checkMark2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.checkMark2.Image = ((System.Drawing.Image)(resources.GetObject("checkMark2.Image")));
+            this.checkMark2.Location = new System.Drawing.Point(15, 161);
+            this.checkMark2.Name = "checkMark2";
+            this.checkMark2.Size = new System.Drawing.Size(47, 35);
+            this.checkMark2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.checkMark2.TabIndex = 10;
+            this.checkMark2.TabStop = false;
+            this.checkMark2.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 425);
+            this.ClientSize = new System.Drawing.Size(541, 315);
+            this.Controls.Add(this.checkMark2);
+            this.Controls.Add(this.checkMark1);
+            this.Controls.Add(this.resetBtn);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.solveBtn);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.fileLabel);
             this.Controls.Add(this.inputBtn);
             this.Controls.Add(this.viewBox);
             this.Controls.Add(this.menuStrip1);
@@ -121,6 +234,8 @@
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkMark1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkMark2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,6 +251,15 @@
         private System.Windows.Forms.Button inputBtn;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem howToUseToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label fileLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button solveBtn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button resetBtn;
+        private System.Windows.Forms.PictureBox checkMark1;
+        private System.Windows.Forms.PictureBox checkMark2;
     }
 }
 
