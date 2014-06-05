@@ -37,6 +37,7 @@ namespace Sudoku_Project_2300
         private void howToUseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             viewBox.Text = "Create a text file of the sudoku puzzle you want to solve.  \n\nValid Input should Consist of 9 rows of 9 characters.\nFor a blank spot on the puzzle, enter *";
+        
         }
 
         private void inputBtn_Click(object sender, EventArgs e)
