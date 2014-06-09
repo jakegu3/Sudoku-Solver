@@ -66,8 +66,7 @@ namespace Sudoku_Project_2300
 
 
                 // TEST THE INPUT TO MAKE SURE IT IS A VALID SUDOKU PUZZLE
-
-                // DISPLAY THE SUDOKU PUZZLE IN THE VIEWING WINDOW
+                                
             }
 
             else
@@ -76,6 +75,9 @@ namespace Sudoku_Project_2300
             }
         }
 
+        // ReadInFile Method
+        // parameter: string file
+        // inserts the lines of the file into the sudoku object.
         private void ReadInFile (string file)
         {
             StreamReader reader = new StreamReader(file);
@@ -86,6 +88,8 @@ namespace Sudoku_Project_2300
             }
         }
 
+        // DisplayBoard method
+        // Takes a list of strings and displays it in the viewer window
         private void DisplayBoard (List<String> board)
         {
             string toDisplay = "";
@@ -99,6 +103,8 @@ namespace Sudoku_Project_2300
             viewBox.Text = toDisplay;
         }
 
+        // Chop method
+        // take a file path and return the file name
         private String Chop(string s)
         {
             Stack<char> st = new Stack<char>();
@@ -126,6 +132,17 @@ namespace Sudoku_Project_2300
             s = "Chosen File: ";
             s += sb.ToString();
             return s;
+        }
+
+        // solvBtn_Click method
+        // call the recursive solve method for the sudoku object, starting with the first row and column (0,0)
+        private void solveBtn_Click(object sender, EventArgs e)
+        {
+            // Have the puzzle solve itself
+            ourPuzzle.SolveRecursively(0, 0);
+
+            // Get and display the completed board
+            DisplayBoard(ourPuzzle.GetBoard());
         }
     }
 }

@@ -53,12 +53,13 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(541, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(725, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -107,7 +108,7 @@
             this.viewBox.Location = new System.Drawing.Point(371, 47);
             this.viewBox.Multiline = true;
             this.viewBox.Name = "viewBox";
-            this.viewBox.Size = new System.Drawing.Size(116, 236);
+            this.viewBox.Size = new System.Drawing.Size(302, 262);
             this.viewBox.TabIndex = 1;
             this.viewBox.Text = "<-----  Select the input file to read in the sudoku puzzle.";
             // 
@@ -167,6 +168,7 @@
             this.solveBtn.TabIndex = 6;
             this.solveBtn.Text = "Solve the Sudoku Puzzle";
             this.solveBtn.UseVisualStyleBackColor = true;
+            this.solveBtn.Click += new System.EventHandler(this.solveBtn_Click);
             // 
             // label3
             // 
@@ -205,7 +207,7 @@
             // 
             this.checkMark2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.checkMark2.Image = ((System.Drawing.Image)(resources.GetObject("checkMark2.Image")));
-            this.checkMark2.Location = new System.Drawing.Point(15, 161);
+            this.checkMark2.Location = new System.Drawing.Point(12, 150);
             this.checkMark2.Name = "checkMark2";
             this.checkMark2.Size = new System.Drawing.Size(47, 35);
             this.checkMark2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -217,7 +219,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 315);
+            this.ClientSize = new System.Drawing.Size(725, 332);
             this.Controls.Add(this.checkMark2);
             this.Controls.Add(this.checkMark1);
             this.Controls.Add(this.resetBtn);
