@@ -55,6 +55,16 @@ namespace Sudoku_Project_2300
             int i = 0;
 
             // Advance through columns and rows until a blank spot is found
+            //while(row < 9 and the current spot is not a blank)
+            //      go to the next column
+            //      if in column 9, move to the next row
+
+
+            // If row = 9, we have processed all rows (0-8) and the solve is complete.  
+
+            // otherwise
+            // try values 1-9 and check row, column, and square
+            // 
 
 
             return 0;
