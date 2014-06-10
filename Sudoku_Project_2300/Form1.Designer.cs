@@ -59,7 +59,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(725, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(673, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -105,10 +105,10 @@
             // 
             this.viewBox.Enabled = false;
             this.viewBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewBox.Location = new System.Drawing.Point(371, 47);
+            this.viewBox.Location = new System.Drawing.Point(386, 62);
             this.viewBox.Multiline = true;
             this.viewBox.Name = "viewBox";
-            this.viewBox.Size = new System.Drawing.Size(302, 262);
+            this.viewBox.Size = new System.Drawing.Size(209, 206);
             this.viewBox.TabIndex = 1;
             this.viewBox.Text = "<-----  Select the input file to read in the sudoku puzzle.";
             // 
@@ -219,7 +219,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 332);
+            this.ClientSize = new System.Drawing.Size(673, 316);
             this.Controls.Add(this.checkMark2);
             this.Controls.Add(this.checkMark1);
             this.Controls.Add(this.resetBtn);

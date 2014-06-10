@@ -9,8 +9,10 @@ namespace Sudoku_Project_2300
     class Sudoku
     {
         // variables
-        private List<String> board = new List<String>();
+        // private List<String> board = new List<String>();
 
+        private string[] board = new string[] {"","","","","","","","",""};
+        
         // Member Methods
 
         // The CheckRow method
@@ -36,38 +38,56 @@ namespace Sudoku_Project_2300
 
         // The AddLine method
         // Purpose: Insert rows into the board
-        public void AddLine(string line)
+        public void AddLine(string line, int row)
         {
-            board.Add(line);
+            board[row] = line;
         }
 
         // The GetBoard method
-        // Purpose: Return the board as a list of strings
-        public List<String> GetBoard()
+        // Purpose: Return the board as an array of strings
+        public string[] GetBoard()
         {
             return board;
         }
 
         // The SolveRecursively method
         // Purpose: Solve the puzzle recursively.  
-        public int SolveRecursively (int row, int column)
+        public bool SolveRecursively (int row, int col)
         {
-            int i = 0;
-
             // Advance through columns and rows until a blank spot is found
             //while(row < 9 and the current spot is not a blank)
-            //      go to the next column
-            //      if in column 9, move to the next row
+            while (row < 9 && board.ElementAt(row).ElementAt(col) != '*')
+            {
 
+                // go to the next column
+                col++;
+
+                // if in column 9, move to the next row
+                if (col == 9)
+                {
+                    // move to the next row
+                    row++;
+                    // start in the first column
+                    col = 0;
+                }
+
+            }
 
             // If row = 9, we have processed all rows (0-8) and the solve is complete.  
+            if (row == 9)
+            {
+                return true;
+            }
 
             // otherwise
             // try values 1-9 and check row, column, and square
-            // 
+            for (int i = 1; i <= 9; i++)
+            {
+                //board.ElementAt(row)[col] = (char)i;
+                
+            }
 
-
-            return 0;
+            return false;
         }
     }
 }

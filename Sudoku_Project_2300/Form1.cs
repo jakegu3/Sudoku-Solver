@@ -33,6 +33,7 @@ namespace Sudoku_Project_2300
             this.Close();
         }
 
+
         // Displays information on how to use the program
         private void howToUseToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -40,6 +41,8 @@ namespace Sudoku_Project_2300
         
         }
 
+        // Have the user choose a file containing the puzzle
+        // Set the sudoku object's board = the data contained in the file
         private void inputBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog1.ShowDialog();
@@ -61,12 +64,12 @@ namespace Sudoku_Project_2300
                 fileLabel.Text = filename;
                 fileLabel.Visible = true;
 
-                // Enable the Solve Button
-                solveBtn.Enabled = true;
-
-
                 // TEST THE INPUT TO MAKE SURE IT IS A VALID SUDOKU PUZZLE
-                                
+
+                // If the input was good, Enable the Solve Button
+                solveBtn.Enabled = true;
+                
+                // Else, notify the user that the input was bad and ask them to choose a valid file.
             }
 
             else
@@ -75,38 +78,55 @@ namespace Sudoku_Project_2300
             }
         }
 
+
         // ReadInFile Method
         // parameter: string file
         // inserts the lines of the file into the sudoku object.
         private void ReadInFile (string file)
         {
             StreamReader reader = new StreamReader(file);
-            
+            int rowCount = 0;
+
             while(reader.Peek() >= 0)
             {
-                ourPuzzle.AddLine(reader.ReadLine());
+                if(rowCount > 8)
+                {
+                    MessageBox.Show("There are too many lines in the file.  it should contain 9 rows of 9 characters");
+                }
+
+                else
+                {
+                    ourPuzzle.AddLine(reader.ReadLine(), rowCount);
+                }
+
+                rowCount++;
             }
         }
 
+
         // DisplayBoard method
         // Takes a list of strings and displays it in the viewer window
-        private void DisplayBoard (List<String> board)
+        private void DisplayBoard (string[] board)
         {
             string toDisplay = "";
 
             for (int i = 0; i < board.Count(); i++)
             {
-                foreach(char c in board.ElementAt(i))
+                string temp = "";
+
+                for (int j = 0; j < board[i].Length; j++)
                 {
-                    toDisplay += c;
-                    toDisplay += "  ";
+                    temp += board[i].ElementAt(j);
+                    temp += "  ";
                 }
-                
+
+                toDisplay += temp;
                 toDisplay += "\r\n";
             }
 
             viewBox.Text = toDisplay;
         }
+
 
         // Chop method
         // take a file path and return the file name
@@ -139,15 +159,18 @@ namespace Sudoku_Project_2300
             return s;
         }
 
+
         // solvBtn_Click method
         // call the recursive solve method for the sudoku object, starting with the first row and column (0,0)
         private void solveBtn_Click(object sender, EventArgs e)
         {
             // Have the puzzle solve itself
-            ourPuzzle.SolveRecursively(0, 0);
+            //ourPuzzle.SolveRecursively(0, 0);
+
+            MessageBox.Show("The solve doesn't work yet");        
 
             // Get and display the completed board
-            DisplayBoard(ourPuzzle.GetBoard());
+            //DisplayBoard(ourPuzzle.GetBoard());
         }
     }
 }
