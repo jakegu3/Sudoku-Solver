@@ -96,7 +96,12 @@ namespace Sudoku_Project_2300
 
             for (int i = 0; i < board.Count(); i++)
             {
-                toDisplay += board.ElementAt(i);
+                foreach(char c in board.ElementAt(i))
+                {
+                    toDisplay += c;
+                    toDisplay += "  ";
+                }
+                
                 toDisplay += "\r\n";
             }
 
