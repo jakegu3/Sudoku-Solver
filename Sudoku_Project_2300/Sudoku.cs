@@ -9,10 +9,9 @@ namespace Sudoku_Project_2300
     class Sudoku
     {
         // variables
-        // private List<String> board = new List<String>();
-
-        private string[] board = new string[] {"","","","","","","","",""};
+        private string[] board = new string[9];
         
+
         // Member Methods
 
         // The CheckRow method
@@ -83,8 +82,7 @@ namespace Sudoku_Project_2300
             // try values 1-9 and check row, column, and square
             for (int i = 1; i <= 9; i++)
             {
-                //board.ElementAt(row)[col] = (char)i;
-                
+               
             }
 
             return false;

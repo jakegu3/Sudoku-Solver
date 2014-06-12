@@ -91,7 +91,7 @@ namespace Sudoku_Project_2300
             {
                 if(rowCount > 8)
                 {
-                    MessageBox.Show("There are too many lines in the file.  it should contain 9 rows of 9 characters");
+                    MessageBox.Show("There are too many lines in the file.  it should contain 9 rows of 9 characters each");
                 }
 
                 else

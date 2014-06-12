@@ -108,7 +108,7 @@
             this.viewBox.Location = new System.Drawing.Point(386, 62);
             this.viewBox.Multiline = true;
             this.viewBox.Name = "viewBox";
-            this.viewBox.Size = new System.Drawing.Size(209, 206);
+            this.viewBox.Size = new System.Drawing.Size(216, 232);
             this.viewBox.TabIndex = 1;
             this.viewBox.Text = "<-----  Select the input file to read in the sudoku puzzle.";
             // 
