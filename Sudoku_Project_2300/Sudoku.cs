@@ -30,7 +30,7 @@ namespace Sudoku_Project_2300
 
         // The CheckSquare method
         // Purpose: Check that the 9x9 square is valid
-        public bool CheckSquare()
+        public bool CheckSquare(int sr, int sc)
         {
             return false;
         }
@@ -82,9 +82,26 @@ namespace Sudoku_Project_2300
             // try values 1-9 and check row, column, and square
             for (int i = 1; i <= 9; i++)
             {
-               
+                StringBuilder newstring = new StringBuilder(board[row]);
+                newstring[col] = (char)i;
+
+                board[row] = newstring.ToString();
+
+                // If successful, return true
+                if (CheckRow(row) && CheckCol(col) && CheckSquare(row-(row%3), col-(col%3)) && SolveRecursively(row, col))
+                {
+                    return true;
+                }
+                
+                // Else, try the next value (go through the loop again)
             }
 
+            // If we get here, we tried all the values 1-9 for this space and none of them worked.  We have to reset this to blank
+            // return false and go back to square 1 :(
+
+            StringBuilder newRow = new StringBuilder(board[row]);
+            newRow[col] = '*';
+            board[row] = newRow.ToString();
             return false;
         }
     }
