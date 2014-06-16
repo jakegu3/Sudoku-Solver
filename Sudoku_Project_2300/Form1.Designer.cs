@@ -46,6 +46,7 @@
             this.resetBtn = new System.Windows.Forms.Button();
             this.checkMark1 = new System.Windows.Forms.PictureBox();
             this.checkMark2 = new System.Windows.Forms.PictureBox();
+            this.testBtn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkMark1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkMark2)).BeginInit();
@@ -97,7 +98,7 @@
             // howToUseToolStripMenuItem
             // 
             this.howToUseToolStripMenuItem.Name = "howToUseToolStripMenuItem";
-            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.howToUseToolStripMenuItem.Text = "How to use...";
             this.howToUseToolStripMenuItem.Click += new System.EventHandler(this.howToUseToolStripMenuItem_Click);
             // 
@@ -195,9 +196,9 @@
             // 
             this.checkMark1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.checkMark1.Image = ((System.Drawing.Image)(resources.GetObject("checkMark1.Image")));
-            this.checkMark1.Location = new System.Drawing.Point(15, 73);
+            this.checkMark1.Location = new System.Drawing.Point(32, 79);
             this.checkMark1.Name = "checkMark1";
-            this.checkMark1.Size = new System.Drawing.Size(47, 35);
+            this.checkMark1.Size = new System.Drawing.Size(25, 19);
             this.checkMark1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.checkMark1.TabIndex = 9;
             this.checkMark1.TabStop = false;
@@ -207,19 +208,31 @@
             // 
             this.checkMark2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.checkMark2.Image = ((System.Drawing.Image)(resources.GetObject("checkMark2.Image")));
-            this.checkMark2.Location = new System.Drawing.Point(12, 150);
+            this.checkMark2.Location = new System.Drawing.Point(29, 156);
             this.checkMark2.Name = "checkMark2";
-            this.checkMark2.Size = new System.Drawing.Size(47, 35);
+            this.checkMark2.Size = new System.Drawing.Size(25, 19);
             this.checkMark2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.checkMark2.TabIndex = 10;
             this.checkMark2.TabStop = false;
             this.checkMark2.Visible = false;
             // 
+            // testBtn
+            // 
+            this.testBtn.Location = new System.Drawing.Point(291, 27);
+            this.testBtn.Name = "testBtn";
+            this.testBtn.Size = new System.Drawing.Size(75, 23);
+            this.testBtn.TabIndex = 11;
+            this.testBtn.Text = "Test";
+            this.testBtn.UseVisualStyleBackColor = true;
+            this.testBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(673, 316);
+            this.Controls.Add(this.testBtn);
             this.Controls.Add(this.checkMark2);
             this.Controls.Add(this.checkMark1);
             this.Controls.Add(this.resetBtn);
@@ -233,7 +246,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Recursive Sudoku Solver";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkMark1)).EndInit();
@@ -262,6 +275,7 @@
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.PictureBox checkMark1;
         private System.Windows.Forms.PictureBox checkMark2;
+        private System.Windows.Forms.Button testBtn;
     }
 }
 

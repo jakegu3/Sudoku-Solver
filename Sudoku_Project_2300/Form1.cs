@@ -37,8 +37,7 @@ namespace Sudoku_Project_2300
         // Displays information on how to use the program
         private void howToUseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            viewBox.Text = "Create a text file of the sudoku puzzle you want to solve.  \n\nValid Input should Consist of 9 rows of 9 characters.\nFor a blank spot on the puzzle, enter *";
-        
+            viewBox.Text = "Create a text file of the sudoku puzzle you want to solve.  Valid input should consist of 9 rows of 9 characters (no spaces). For a blank spot on the puzzle, enter *";
         }
 
         // Have the user choose a file containing the puzzle
@@ -171,6 +170,19 @@ namespace Sudoku_Project_2300
 
             // Get and display the completed board
             //DisplayBoard(ourPuzzle.GetBoard());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ourPuzzle.CheckCol(2))
+            {
+                MessageBox.Show("Column 3 is VALID :)");
+            }
+
+            else
+            {
+                MessageBox.Show("Column 3 is NOT VALID :(");
+            }
         }
     }
 }

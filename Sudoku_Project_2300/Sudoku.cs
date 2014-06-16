@@ -24,7 +24,7 @@ namespace Sudoku_Project_2300
         public bool CheckRow(int row)
         {
             //Sets all values of the array to 0
-            for (int i = 0; i <= NINE; i++)
+            for (int i = 0; i < NINE; i++)
                 checkAgainst[i] = 0;
 
             //
@@ -33,13 +33,13 @@ namespace Sudoku_Project_2300
                 if (board[row].ElementAt(i) != '*')
                 {
                     //if there is more than one of the same number, then return false
-                    if (checkAgainst[board[row].ElementAt(i)] >= 1)
+                    if (checkAgainst[(int)char.GetNumericValue(board[row][i]) - 1] >= 1)
                     {
                         return false;
                     }
                     else
                         //add 1 to number of timmes the number appears in the column
-                        checkAgainst[board[row][i]] = 1;
+                        checkAgainst[(int)char.GetNumericValue(board[row][i]) - 1] = 1;
                 }
             }
             return true;
@@ -50,18 +50,18 @@ namespace Sudoku_Project_2300
         public bool CheckCol(int col)
         {
             //create an array to count how many instances of a number appears in a column
-            for (int i = '0'; i <= '9'; i++) 
+            for (int i = 0; i < NINE; i++)
                 checkAgainst[i] = 0;
 
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < NINE; i++)
             {
-                if (board[i].ElementAt(col) != '*')
+                if (board[i][col] != '*')
                 {
                     //if there is more than one of the same number, then return false
-                    if ((checkAgainst[board[i].ElementAt(col)])>=1) 
+                    if ((checkAgainst[(int)char.GetNumericValue(board[i][col]) - 1]) >= 1)
                         return false;
                     //add 1 to number of timmes the number appears in the column
-                    checkAgainst[board[i].ElementAt(col)] += 1;
+                    checkAgainst[(int)char.GetNumericValue(board[i][col]) - 1] += 1;
                 }
             }
             return true;
