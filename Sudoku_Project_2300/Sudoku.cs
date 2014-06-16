@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Sudoku_Project_2300
 {
+    
     class Sudoku
     {
         // variables
-        private string[] board = new string[9];
-        private int[] checkAgainst = new int[9];
+        const int NINE = 9;
+        private string[] board = new string[NINE];
+        private int[] checkAgainst = new int[NINE];
+
 
         // Member Methods
 
@@ -18,7 +23,26 @@ namespace Sudoku_Project_2300
         // Purpose: Check that the current row is valid
         public bool CheckRow(int row)
         {
-            return false;
+            //Sets all values of the array to 0
+            for (int i = 0; i <= NINE; i++)
+                checkAgainst[i] = 0;
+
+            //
+            for (int i = 0; i < NINE; i++)
+            {
+                if (board[row].ElementAt(i) != '*')
+                {
+                    //if there is more than one of the same number, then return false
+                    if (checkAgainst[board[row].ElementAt(i)] >= 1)
+                    {
+                        return false;
+                    }
+                    else
+                        //add 1 to number of timmes the number appears in the column
+                        checkAgainst[board[row][i]] = 1;
+                }
+            }
+            return true;
         }
 
         // The CheckCol method
