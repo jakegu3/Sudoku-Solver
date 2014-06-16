@@ -24,7 +24,7 @@ namespace Sudoku_Project_2300
         public bool CheckRow(int row)
         {
             //Sets all values of the array to 0
-            for (int i = 0; i < NINE; i++)
+            for (int i = 0; i <= NINE; i++)
                 checkAgainst[i] = 0;
 
             //
@@ -33,13 +33,13 @@ namespace Sudoku_Project_2300
                 if (board[row].ElementAt(i) != '*')
                 {
                     //if there is more than one of the same number, then return false
-                    if (checkAgainst[(int)char.GetNumericValue(board[row][i]) - 1] >= 1)
+                    if (checkAgainst[board[row].ElementAt(i)] >= 1)
                     {
                         return false;
                     }
                     else
                         //add 1 to number of timmes the number appears in the column
-                        checkAgainst[(int)char.GetNumericValue(board[row][i]) - 1] = 1;
+                        checkAgainst[board[row][i]] = 1;
                 }
             }
             return true;
@@ -50,18 +50,18 @@ namespace Sudoku_Project_2300
         public bool CheckCol(int col)
         {
             //create an array to count how many instances of a number appears in a column
-            for (int i = 0; i < NINE; i++)
+            for (int i = '0'; i <= '9'; i++) 
                 checkAgainst[i] = 0;
 
-            for (int i = 0; i < NINE; i++)
+            for (int i = 0; i < 9; i++)
             {
-                if (board[i][col] != '*')
+                if (board[i].ElementAt(col) != '*')
                 {
                     //if there is more than one of the same number, then return false
-                    if ((checkAgainst[(int)char.GetNumericValue(board[i][col]) - 1]) >= 1)
+                    if ((checkAgainst[board[i].ElementAt(col)])>=1) 
                         return false;
                     //add 1 to number of timmes the number appears in the column
-                    checkAgainst[(int)char.GetNumericValue(board[i][col]) - 1] += 1;
+                    checkAgainst[board[i].ElementAt(col)] += 1;
                 }
             }
             return true;
@@ -92,7 +92,7 @@ namespace Sudoku_Project_2300
                     }
                 }
             }
-            return false;
+            return true;
         }
 
         // The AddLine method
@@ -115,14 +115,14 @@ namespace Sudoku_Project_2300
         {
             // Advance through columns and rows until a blank spot is found
             //while(row < 9 and the current spot is not a blank)
-            while (row < NINE && board.ElementAt(row).ElementAt(col) != '*')
+            while (row < 9 && board.ElementAt(row).ElementAt(col) != '*')
             {
 
                 // go to the next column
                 col++;
 
                 // if in column 9, move to the next row
-                if (col == NINE)
+                if (col == 9)
                 {
                     // move to the next row
                     row++;
@@ -133,14 +133,14 @@ namespace Sudoku_Project_2300
             }
 
             // If row = 9, we have processed all rows (0-8) and the solve is complete.  
-            if (row == NINE)
+            if (row == 9)
             {
                 return true;
             }
 
             // otherwise
             // try values 1-9 and check row, column, and square
-            for (int i = 1; i <= NINE; i++)
+            for (int i = 1; i <= 9; i++)
             {
                 StringBuilder newstring = new StringBuilder(board[row]);
                 newstring[col] = (char)i;
