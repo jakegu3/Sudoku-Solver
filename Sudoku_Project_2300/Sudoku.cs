@@ -94,14 +94,14 @@ namespace Sudoku_Project_2300
         {
             // Advance through columns and rows until a blank spot is found
             //while(row < 9 and the current spot is not a blank)
-            while (row < 9 && board.ElementAt(row).ElementAt(col) != '*')
+            while (row < NINE && board.ElementAt(row).ElementAt(col) != '*')
             {
 
                 // go to the next column
                 col++;
 
                 // if in column 9, move to the next row
-                if (col == 9)
+                if (col == NINE)
                 {
                     // move to the next row
                     row++;
@@ -112,14 +112,14 @@ namespace Sudoku_Project_2300
             }
 
             // If row = 9, we have processed all rows (0-8) and the solve is complete.  
-            if (row == 9)
+            if (row == NINE)
             {
                 return true;
             }
 
             // otherwise
             // try values 1-9 and check row, column, and square
-            for (int i = 1; i <= 9; i++)
+            for (int i = 1; i <= NINE; i++)
             {
                 StringBuilder newstring = new StringBuilder(board[row]);
                 newstring[col] = (char)i;
