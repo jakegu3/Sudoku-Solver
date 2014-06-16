@@ -10,7 +10,7 @@ namespace Sudoku_Project_2300
     {
         // variables
         private string[] board = new string[9];
-
+        private int[] checkAgainst = new int[9];
 
         // Member Methods
 
@@ -25,7 +25,22 @@ namespace Sudoku_Project_2300
         // Purpose: Check that the current column is valid
         public bool CheckCol(int col)
         {
-            return false;
+            //create an array to count how many instances of a number appears in a column
+            for (int i = '0'; i <= '9'; i++) 
+                checkAgainst[i] = 0;
+
+            for (int i = 0; i < 9; i++)
+            {
+                if (board[i].ElementAt(col) != '*')
+                {
+                    //if there is more than one of the same number, then return false
+                    if ((checkAgainst[board[i].ElementAt(col)])>=1) 
+                        return false;
+                    //add 1 to number of timmes the number appears in the column
+                    checkAgainst[board[i].ElementAt(col)] += 1;
+                }
+            }
+            return true;
         }
 
         // The CheckSquare method
@@ -51,7 +66,7 @@ namespace Sudoku_Project_2300
 
         // The SolveRecursively method
         // Purpose: Solve the puzzle recursively.  
-        public bool SolveRecursively(int row, int col)
+        public bool SolveRecursively (int row, int col)
         {
             // Advance through columns and rows until a blank spot is found
             //while(row < 9 and the current spot is not a blank)
@@ -88,11 +103,11 @@ namespace Sudoku_Project_2300
                 board[row] = newstring.ToString();
 
                 // If successful, return true
-                if (CheckRow(row) && CheckCol(col) && CheckSquare(row - (row % 3), col - (col % 3)) && SolveRecursively(row, col))
+                if (CheckRow(row) && CheckCol(col) && CheckSquare(row-(row%3), col-(col%3)) && SolveRecursively(row, col))
                 {
                     return true;
                 }
-
+                
                 // Else, try the next value (go through the loop again)
             }
 
