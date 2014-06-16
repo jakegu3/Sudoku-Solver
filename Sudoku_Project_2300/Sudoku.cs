@@ -10,7 +10,7 @@ namespace Sudoku_Project_2300
     {
         // variables
         private string[] board = new string[9];
-        
+
 
         // Member Methods
 
@@ -51,7 +51,7 @@ namespace Sudoku_Project_2300
 
         // The SolveRecursively method
         // Purpose: Solve the puzzle recursively.  
-        public bool SolveRecursively (int row, int col)
+        public bool SolveRecursively(int row, int col)
         {
             // Advance through columns and rows until a blank spot is found
             //while(row < 9 and the current spot is not a blank)
@@ -88,11 +88,11 @@ namespace Sudoku_Project_2300
                 board[row] = newstring.ToString();
 
                 // If successful, return true
-                if (CheckRow(row) && CheckCol(col) && CheckSquare(row-(row%3), col-(col%3)) && SolveRecursively(row, col))
+                if (CheckRow(row) && CheckCol(col) && CheckSquare(row - (row % 3), col - (col % 3)) && SolveRecursively(row, col))
                 {
                     return true;
                 }
-                
+
                 // Else, try the next value (go through the loop again)
             }
 
