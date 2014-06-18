@@ -133,7 +133,7 @@ namespace Sudoku_Project_2300
         {
             Stack<char> st = new Stack<char>();
 
-            for (int i = s.Length-1; i >= 0; i--)
+            for (int i = (s.Length - 1); i >= 0; i--)
             {
                 if (s[i].Equals('\\'))
                 {
@@ -148,9 +148,9 @@ namespace Sudoku_Project_2300
 
             StringBuilder sb = new StringBuilder();
 
-            for(int i = 0; i < st.Count-1; i++)
+            foreach (char ch in st)
             {
-                sb.Append(st.Pop());
+                sb.Append(ch);
             }
 
             s = "Chosen File: ";
@@ -164,25 +164,26 @@ namespace Sudoku_Project_2300
         private void solveBtn_Click(object sender, EventArgs e)
         {
             // Have the puzzle solve itself
-            //ourPuzzle.SolveRecursively(0, 0);
-
-            MessageBox.Show("The solve doesn't work yet");        
-
+            ourPuzzle.SolveRecursively(0, 0);
+    
             // Get and display the completed board
-            //DisplayBoard(ourPuzzle.GetBoard());
+            DisplayBoard(ourPuzzle.GetBoard());
+
+            checkMark2.Visible = true;
+            solveBtn.Enabled = false;
+            resetBtn.Enabled = true;
+            viewBox.Enabled = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (ourPuzzle.CheckCol(2))
-            {
-                MessageBox.Show("Column 3 is VALID :)");
-            }
 
-            else
-            {
-                MessageBox.Show("Column 3 is NOT VALID :(");
-            }
+        // Reset the process, so the user can choose another puzzle to solve.
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            viewBox.Text = "<-----  Select the input file to read in the sudoku puzzle.";
+            inputBtn.Enabled = true;
+            viewBox.Enabled = false;
+            checkMark1.Visible = false;
+            checkMark2.Visible = false;
         }
     }
 }

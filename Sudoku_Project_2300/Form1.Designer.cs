@@ -46,7 +46,6 @@
             this.resetBtn = new System.Windows.Forms.Button();
             this.checkMark1 = new System.Windows.Forms.PictureBox();
             this.checkMark2 = new System.Windows.Forms.PictureBox();
-            this.testBtn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkMark1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkMark2)).BeginInit();
@@ -98,7 +97,7 @@
             // howToUseToolStripMenuItem
             // 
             this.howToUseToolStripMenuItem.Name = "howToUseToolStripMenuItem";
-            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.howToUseToolStripMenuItem.Text = "How to use...";
             this.howToUseToolStripMenuItem.Click += new System.EventHandler(this.howToUseToolStripMenuItem_Click);
             // 
@@ -106,10 +105,10 @@
             // 
             this.viewBox.Enabled = false;
             this.viewBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewBox.Location = new System.Drawing.Point(386, 62);
+            this.viewBox.Location = new System.Drawing.Point(396, 62);
             this.viewBox.Multiline = true;
             this.viewBox.Name = "viewBox";
-            this.viewBox.Size = new System.Drawing.Size(216, 232);
+            this.viewBox.Size = new System.Drawing.Size(216, 233);
             this.viewBox.TabIndex = 1;
             this.viewBox.Text = "<-----  Select the input file to read in the sudoku puzzle.";
             // 
@@ -118,7 +117,7 @@
             this.inputBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputBtn.Location = new System.Drawing.Point(107, 62);
             this.inputBtn.Name = "inputBtn";
-            this.inputBtn.Size = new System.Drawing.Size(149, 50);
+            this.inputBtn.Size = new System.Drawing.Size(149, 51);
             this.inputBtn.TabIndex = 2;
             this.inputBtn.Text = "Select Input File";
             this.inputBtn.UseVisualStyleBackColor = true;
@@ -191,6 +190,7 @@
             this.resetBtn.TabIndex = 8;
             this.resetBtn.Text = "Start Over";
             this.resetBtn.UseVisualStyleBackColor = true;
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
             // checkMark1
             // 
@@ -216,23 +216,12 @@
             this.checkMark2.TabStop = false;
             this.checkMark2.Visible = false;
             // 
-            // testBtn
-            // 
-            this.testBtn.Location = new System.Drawing.Point(291, 27);
-            this.testBtn.Name = "testBtn";
-            this.testBtn.Size = new System.Drawing.Size(75, 23);
-            this.testBtn.TabIndex = 11;
-            this.testBtn.Text = "Test";
-            this.testBtn.UseVisualStyleBackColor = true;
-            this.testBtn.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(673, 316);
-            this.Controls.Add(this.testBtn);
             this.Controls.Add(this.checkMark2);
             this.Controls.Add(this.checkMark1);
             this.Controls.Add(this.resetBtn);
@@ -275,7 +264,6 @@
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.PictureBox checkMark1;
         private System.Windows.Forms.PictureBox checkMark2;
-        private System.Windows.Forms.Button testBtn;
     }
 }
 
