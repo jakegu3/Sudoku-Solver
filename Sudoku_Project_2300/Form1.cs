@@ -164,15 +164,21 @@ namespace Sudoku_Project_2300
         private void solveBtn_Click(object sender, EventArgs e)
         {
             // Have the puzzle solve itself
-            ourPuzzle.SolveRecursively(0, 0);
-    
-            // Get and display the completed board
-            DisplayBoard(ourPuzzle.GetBoard());
+            if (ourPuzzle.SolveRecursively(0, 0))
+            {
+                // Get and display the completed board
+                DisplayBoard(ourPuzzle.GetBoard());
 
-            checkMark2.Visible = true;
-            solveBtn.Enabled = false;
-            resetBtn.Enabled = true;
-            viewBox.Enabled = true;
+                checkMark2.Visible = true;
+                solveBtn.Enabled = false;
+                resetBtn.Enabled = true;
+                viewBox.Enabled = true;
+            }
+
+            else
+            {
+                MessageBox.Show("Unable to solve Puzzle\n\n INVALID INPUT, PLEASE TRY AGAIN");
+            }
         }
 
 
