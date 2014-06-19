@@ -104,7 +104,7 @@ namespace Sudoku_Project_2300
 
 
         // DisplayBoard method
-        // Takes a list of strings and displays it in the viewer window
+        // Takes an array of strings and displays it in the viewer window
         private void DisplayBoard (string[] board)
         {
             string toDisplay = "";
@@ -115,7 +115,7 @@ namespace Sudoku_Project_2300
 
                 for (int j = 0; j < board[i].Length; j++)
                 {
-                    temp += board[i].ElementAt(j);
+                    temp += board[i][j];
                     temp += "  ";
                 }
 
@@ -171,14 +171,15 @@ namespace Sudoku_Project_2300
 
                 checkMark2.Visible = true;
                 solveBtn.Enabled = false;
-                resetBtn.Enabled = true;
                 viewBox.Enabled = true;
             }
 
             else
             {
-                MessageBox.Show("Unable to solve Puzzle\n\n INVALID INPUT, PLEASE TRY AGAIN");
+                MessageBox.Show("\n INVALID INPUT, PLEASE TRY AGAIN");
             }
+
+            resetBtn.Enabled = true;
         }
 
 
@@ -190,6 +191,8 @@ namespace Sudoku_Project_2300
             viewBox.Enabled = false;
             checkMark1.Visible = false;
             checkMark2.Visible = false;
+            resetBtn.Enabled = false;
+            solveBtn.Enabled = false;
         }
     }
 }

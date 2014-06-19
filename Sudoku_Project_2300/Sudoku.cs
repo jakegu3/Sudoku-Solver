@@ -157,7 +157,7 @@ namespace Sudoku_Project_2300
             }
 
             // If we get here, we tried all the values 1-9 for this space and none of them worked.  We have to reset this to blank
-            // return false and go back to square 1 :(
+            // return false and go back to previous cell
 
             StringBuilder newRow = new StringBuilder(board[row]);
             newRow[col] = '*';
