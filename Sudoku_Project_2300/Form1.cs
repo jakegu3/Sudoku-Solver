@@ -49,26 +49,31 @@ namespace Sudoku_Project_2300
             {
                 // READ IN THE TEXT FILE 
                 string filename = openFileDialog1.FileName;
-                ReadInFile(filename);
+                if (ReadInFile(filename) == 1)
+                {
+                    // Display the Sudoku Puzzle in the view window
+                    DisplayBoard(ourPuzzle.GetBoard());
 
-                // Display the Sudoku Puzzle in the view window
-                DisplayBoard(ourPuzzle.GetBoard());
+                    // Disable the input file selector
+                    inputBtn.Enabled = false;
+                    checkMark1.Visible = true;
 
-                // Disable the input file selector
-                inputBtn.Enabled = false;
-                checkMark1.Visible = true;
+                    // Make the filename visible
+                    filename = Chop(filename);
+                    fileLabel.Text = filename;
+                    fileLabel.Visible = true;
 
-                // Make the filename visible
-                filename = Chop(filename);
-                fileLabel.Text = filename;
-                fileLabel.Visible = true;
+                    // TEST THE INPUT TO MAKE SURE IT IS A VALID SUDOKU PUZZLE
 
-                // TEST THE INPUT TO MAKE SURE IT IS A VALID SUDOKU PUZZLE
+                    // If the input was good, Enable the Solve Button
+                    solveBtn.Enabled = true;
+                }
 
-                // If the input was good, Enable the Solve Button
-                solveBtn.Enabled = true;
-                
                 // Else, notify the user that the input was bad and ask them to choose a valid file.
+                else
+                {
+                    MessageBox.Show("The input file is bad.  Select a different file.  If you need help with the input, click 'Help' in the menu.");
+                }
             }
 
             else
@@ -81,25 +86,43 @@ namespace Sudoku_Project_2300
         // ReadInFile Method
         // parameter: string file
         // inserts the lines of the file into the sudoku object.
-        private void ReadInFile (string file)
+        private int ReadInFile (string file)
         {
             StreamReader reader = new StreamReader(file);
             int rowCount = 0;
+            string line = "";
 
-            while(reader.Peek() >= 0)
+            while((line = reader.ReadLine()) != null)
             {
                 if(rowCount > 8)
                 {
                     MessageBox.Show("There are too many lines in the file.  it should contain 9 rows of 9 characters each");
+                    return 0;
                 }
 
                 else
                 {
-                    ourPuzzle.AddLine(reader.ReadLine(), rowCount);
+                    // this string contains all the valid characters for an input file
+                    string valid = "123456789*";
+
+                    // check each character in the line to see if it is valid.  If it is not, return -1 to show the input is invalid 
+                    for (int i = 0; i < line.Length; i++)
+                    {
+                        if (!valid.Contains(line[i]))
+                        {
+                            return -1;
+                        }
+                    }
+
+                    // if all the characters where valid, add the row to the board.
+                    ourPuzzle.AddLine(line, rowCount);
                 }
 
                 rowCount++;
             }
+
+            reader.Close();
+            return 1;
         }
 
 
