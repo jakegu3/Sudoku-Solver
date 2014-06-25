@@ -131,7 +131,8 @@
             // 
             this.fileLabel.AutoSize = true;
             this.fileLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileLabel.Location = new System.Drawing.Point(79, 116);
+            this.fileLabel.ForeColor = System.Drawing.Color.Gold;
+            this.fileLabel.Location = new System.Drawing.Point(69, 116);
             this.fileLabel.Name = "fileLabel";
             this.fileLabel.Size = new System.Drawing.Size(90, 18);
             this.fileLabel.TabIndex = 3;
@@ -208,7 +209,7 @@
             // 
             this.checkMark2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.checkMark2.Image = ((System.Drawing.Image)(resources.GetObject("checkMark2.Image")));
-            this.checkMark2.Location = new System.Drawing.Point(29, 156);
+            this.checkMark2.Location = new System.Drawing.Point(32, 161);
             this.checkMark2.Name = "checkMark2";
             this.checkMark2.Size = new System.Drawing.Size(25, 19);
             this.checkMark2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

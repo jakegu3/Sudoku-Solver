@@ -97,7 +97,8 @@ namespace Sudoku_Project_2300
                 if(rowCount > 8)
                 {
                     MessageBox.Show("There are too many lines in the file.  it should contain 9 rows of 9 characters each");
-                    return 0;
+                    reader.Close();
+                    return -1;
                 }
 
                 else
@@ -110,6 +111,7 @@ namespace Sudoku_Project_2300
                     {
                         if (!valid.Contains(line[i]))
                         {
+                            reader.Close();
                             return -1;
                         }
                     }
@@ -119,6 +121,12 @@ namespace Sudoku_Project_2300
                 }
 
                 rowCount++;
+            }
+
+            if (rowCount < 8)
+            {
+                reader.Close();
+                return -1;
             }
 
             reader.Close();
@@ -216,6 +224,7 @@ namespace Sudoku_Project_2300
             checkMark2.Visible = false;
             resetBtn.Enabled = false;
             solveBtn.Enabled = false;
+            fileLabel.Visible = false;
         }
     }
 }
