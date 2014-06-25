@@ -13,11 +13,18 @@ namespace Sudoku_Project_2300
     {
         // variables
         const int NINE = 9;
-        private string[] board = new string[NINE];
-        private int[] checkAgainst = new int[NINE];
+        private string[] board;
+        private int[] checkAgainst;
 
 
         // Member Methods
+
+        // Constructor
+        public Sudoku()
+        {
+            board = new string[NINE];
+            checkAgainst = new int[NINE];
+        }
 
         // The CheckRow method
         // Purpose: Check that the current row is valid

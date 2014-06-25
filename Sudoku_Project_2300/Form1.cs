@@ -37,7 +37,7 @@ namespace Sudoku_Project_2300
         // Displays information on how to use the program
         private void howToUseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            viewBox.Text = "Create a text file of the sudoku puzzle you want to solve.  Valid input should consist of 9 rows of 9 characters (no spaces). For a blank spot on the puzzle, enter *";
+            viewBox.Text = "Create a text file of the sudoku puzzle you want to solve.  Valid input should consist of 9 lines of 9 characters each (no spaces). For a blank spot on the puzzle, enter *";
         }
 
         // Have the user choose a file containing the puzzle
@@ -49,7 +49,7 @@ namespace Sudoku_Project_2300
             {
                 // READ IN THE TEXT FILE 
                 string filename = openFileDialog1.FileName;
-                if (ReadInFile(filename) == 1)
+                if (ReadInFile(filename) != -1)
                 {
                     // Display the Sudoku Puzzle in the view window
                     DisplayBoard(ourPuzzle.GetBoard());
@@ -122,7 +122,7 @@ namespace Sudoku_Project_2300
             }
 
             reader.Close();
-            return 1;
+            return 0;
         }
 
 
